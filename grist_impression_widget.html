@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Distributeur</title>
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <style>
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            color: #222222;
+        }
+
+        #app {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 10mm;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left, .header-right {
+            font-size: 10pt;
+            color: #666;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24pt;
+            margin: 20px 0;
+        }
+
+        #distributeur-info {
+            font-size: 14pt;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        #distributeur-info p {
+            margin: 5px 0;
+        }
+
+        #commerces-summary {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e6f2ff;
+            border: 2px solid #4a90e2;
+        }
+
+        #commerces-summary p {
+            margin: 5px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .commerce-row {
+            font-size: 12pt;
+        }
+
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button id="print-button" class="no-print">Imprimer</button>
+        <header>
+            <div class="header-left">Tirelires de Noël</div>
+            <div class="header-right" id="current-date"></div>
+        </header>
+        <h1>Fiche Distributeur des tirelires de Noël</h1>
+        <section id="distributeur-info">
+            <!-- Les informations du distributeur seront injectées ici -->
+        </section>
+        <section id="commerces">
+            <div id="commerces-summary"></div>
+            <table id="commerces-table">
+                <thead>
+                    <tr>
+                        <th>Nom du Commerce</th>
+                        <th>Adresse</th>
+                        <th>Tirelires</th>
+                        <th>Visité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les lignes du tableau seront injectées ici -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
